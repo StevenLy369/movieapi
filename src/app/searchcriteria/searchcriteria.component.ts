@@ -10,6 +10,8 @@ export class SearchcriteriaComponent implements OnInit {
   
   movieList:any[] = []
 
+  
+
   constructor(private apiService: ApiserviceService ) { }
 
   ngOnInit() {
@@ -18,7 +20,7 @@ export class SearchcriteriaComponent implements OnInit {
 
     this.apiService.getImdbData(form.value.searchResult).subscribe(response => {
       console.log(response);
-      this.movieList = response["data"];
+      this.movieList = response["results"];
 
       
     });

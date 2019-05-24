@@ -1,12 +1,14 @@
-<!-- <button (click)="searchImdb()">Search</button>
+ <!-- <button (click)="searchImdb()">Search</button> -->
 
-<div *ngFor ="let movie of movieList">
-  <p>Title: {{ results.title}} </p>
-   <p>Title: {{ }} </p>
-  <p>Title: {{ }} </p> -->
+<div *ngFor ="let movie of movieList; index as i">
+  <p>Title: {{ movie.title }}</p>
+   <p>Description: {{ movie.overview }} </p>
+   <!-- <p>{{ movie.poster_path }}</p> -->
+  <img src="https://image.tmdb.org/t/p/w500/{{ movie.poster_path }}" alt="">
 
-<!-- 
-</div> -->
+
+</div> 
+
 
 
 
