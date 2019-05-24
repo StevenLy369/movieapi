@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ApiserviceService } from "../apiservice.service"
 
 @Component({
   selector: 'searchcriteria',
@@ -6,10 +7,21 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./searchcriteria.component.css']
 })
 export class SearchcriteriaComponent implements OnInit {
+  
+  movieList:any[] = []
 
-  constructor() { }
+  constructor(private apiService: ApiserviceService ) { }
 
   ngOnInit() {
   }
+    searchImdb(form){
 
+    this.apiService.getImdbData(form.value.searchResult).subscribe(response => {
+      console.log(response);
+      this.movieList = response["data"];
+
+      
+    });
+    
+  }
 }

@@ -1,3 +1,18 @@
-<p>
-  searchcriteria works!
-</p>
+<!-- <button (click)="searchImdb()">Search</button>
+
+<div *ngFor ="let movie of movieList">
+  <p>Title: {{ results.title}} </p>
+   <p>Title: {{ }} </p>
+  <p>Title: {{ }} </p> -->
+
+<!-- 
+</div> -->
+
+
+
+
+<form #imdbForm="ngForm" (ngSubmit)="searchImdb(imdbForm)">
+  <label for="">Which Sub?</label>
+  <input type="text" ngModel name="searchResult">
+  <button>Search</button>
+</form>   
