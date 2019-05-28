@@ -9,6 +9,7 @@ import { ApiserviceService } from "../apiservice.service"
 export class SearchcriteriaComponent implements OnInit {
   
   movieList:any[] = []
+ 
 
   
 
@@ -18,12 +19,11 @@ export class SearchcriteriaComponent implements OnInit {
   }
     searchImdb(form){
 
-    this.apiService.getImdbData(form.value.searchResult).subscribe(response => {
-      console.log(response);
-      this.movieList = response["results"];
-
-      
-    });
-    
+    this.apiService.getImdbData(form.value.searchResult);
   }
+
+  // addFavs(newFav) {
+  //   console.log(newFav);
+  //   this.apiService.addFavs(newFav);
+  // }
 }

@@ -13,4 +13,11 @@
   <button>Search</button>
 </form> -->
 
-<searchcriteria></searchcriteria>
+<!-- <searchcriteria></searchcriteria> -->
+<div *ngFor ="let movie of movieList; index as i">
+  <p>Title: {{ movie.title }}</p>
+   <p>Description: {{ movie.overview }} </p>
+  <img src="https://image.tmdb.org/t/p/w500/{{ movie.poster_path }}" alt="">
+  <span (click)="addFavs(movie)">X</span>
+
+</div>

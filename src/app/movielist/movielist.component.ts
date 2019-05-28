@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { ApiserviceService } from "../apiservice.service";
 
 @Component({
   selector: 'movielist',
@@ -7,9 +9,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MovielistComponent implements OnInit {
 
-  constructor() { }
+  movieList: any[];
+
+  constructor(private route: ActivatedRoute, private apiService: ApiserviceService) { }
 
   ngOnInit() {
+    this.movieList = this.apiService.getMovieList();
+    console.log(this.movieList);
+  }
+
+  addFavs(newFav) {
+    console.log(newFav);
+    this.apiService.addFavs(newFav);
   }
 
 }

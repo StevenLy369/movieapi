@@ -1,15 +1,23 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { ApiserviceService } from "../apiservice.service";
 
 @Component({
-  selector: 'app-watchlist',
+  selector: 'watchlist',
   templateUrl: './watchlist.component.html',
-  styleUrls: ['./watchlist.component.css']
+  styleUrls: ['./watchlist.component.css'],
+  providers: [ ApiserviceService ]
 })
 export class WatchlistComponent implements OnInit {
+  favList: any[];
 
-  constructor() { }
+
+  constructor(private route: ActivatedRoute, private apiService: ApiserviceService) { }
 
   ngOnInit() {
+    this.favList = this.apiService.getFavList();
+    console.log(this.favList);
   }
+
 
 }
