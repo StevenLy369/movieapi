@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ApiserviceService } from "../apiservice.service"
+import { ApiserviceService } from "../apiservice.service";
+
 
 @Component({
   selector: 'searchcriteria',
@@ -13,13 +14,25 @@ export class SearchcriteriaComponent implements OnInit {
 
   
 
-  constructor(private apiService: ApiserviceService ) { }
+  constructor(private apiService: ApiserviceService) { }
 
   ngOnInit() {
   }
     searchImdb(form){
 
     this.apiService.getImdbData(form.value.searchResult);
+  }
+
+  searchGenre(form) {
+    this.apiService.getImdbGenre(form.value.genreResult);
+  }
+
+  searchRating(form) {
+    this.apiService.getImdbRating(form.value.ratingResult);
+  }
+
+  searchYear(form) {
+    this.apiService.getImdbYear(form.value.yearResult);
   }
 
   // addFavs(newFav) {
